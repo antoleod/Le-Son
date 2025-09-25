@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Les Sons que je Connais - Jeu Magique</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="chart.min.js"></script>
+</head>
+<body>
+  <!-- Mapa mágico interactivo -->
+  <div id="map-screen">
+    <h1>🗺️ Monde Magique des Sons</h1>
+    <div id="map">
+      <button onclick="startMainGame()" class="map-btn">🏰 Château (Mots)</button>
+      <button onclick="startMemoryGame()" class="map-btn">🌲 Forêt (Mémoire)</button>
+      <button onclick="startFastAudioGame()" class="map-btn">🌊 Lac (Écoute Rapide)</button>
+      <button onclick="startDragDropGame()" class="map-btn">⛰️ Montagne (Drag & Drop)</button>
+    </div>
+  </div>
+
+  <!-- Layout principal -->
+  <div id="game-layout" class="hidden">
+    <aside id="sidebar">
+      <img id="player-avatar" class="avatar big" src="" alt="avatar" />
+      <div class="coins">🪙 <span id="coins">0</span></div>
+      <div id="time-tracker">
+        ⏱️ Temps joué: <span id="playtime">0:00</span>
+        <div class="bar"><span id="time-bar"></span></div>
+      </div>
+      <div id="level-progress">
+        <div id="level-info">Niveau 1 • Exercice 1/5</div>
+        <div class="bar"><span id="progress-bar"></span></div>
+      </div>
+      <div id="sidebar-buttons">
+        <button id="btn-store">🛒 Boutique</button>
+        <button id="btn-test">🧪 Test</button>
+        <button id="btn-stats">📊 Stats</button>
+        <button id="btn-ranking">🏆 Ranking</button>
+        <button id="btn-map">↩️ Carte</button>
+        <button id="btn-reset" class="danger">↺ Reset</button>
+      </div>
+    </aside>
+
+    <main id="main-game">
+      <h1>🎵 Les Sons que je Connais</h1>
+      <section id="exercise-area"></section>
+      <button id="next-btn" class="primary hidden">➡️ Suivant</button>
+      <div id="coin-animation"></div>
+      <div id="confetti"></div>
+
+      <section id="memory-game" class="hidden">
+        <h2>🔮 Jeu de Mémoire Sonore</h2>
+        <div id="memory-grid"></div>
+        <button id="exit-memory" class="secondary">Quitter</button>
+      </section>
+    </main>
+  </div>
+
+  <div id="ranking-modal" class="modal hidden">
+    <div class="modal-card modal-large">
+      <h2>🏆 Classement Historique</h2>
+      <table id="ranking-table">
+        <thead>
+          <tr><th>Date</th><th>Score</th><th>Racha</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button id="close-ranking">Fermer</button>
+    </div>
+  </div>
+
+  <div id="store-modal" class="modal hidden">
+    <div class="modal-card">
+      <h2>🛒 Boutique</h2>
+      <div id="store-grid"></div>
+      <button id="close-store">Fermer</button>
+    </div>
+  </div>
+
+  <div id="stats-modal" class="modal hidden">
+    <div class="modal-card modal-large">
+      <h2>📊 Tes Statistiques</h2>
+      <canvas id="statsChart" width="400" height="300"></canvas>
+      <button id="close-stats">Fermer</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
