@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Les Sons que je Connais - Jeu</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Selección de avatar inicial -->
+  <div id="avatar-select" class="modal">
+    <div class="modal-card">
+      <h2>Choisis ton avatar</h2>
+      <p>Tu peux en débloquer d'autres plus tard 🪙</p>
+      <div id="starter-avatars" class="avatar-options">
+        <!-- Se completa desde JS -->
+      </div>
+      <button class="primary" id="start-game">Commencer</button>
+    </div>
+  </div>
+
+  <!-- Contenedor principal del juego -->
+  <div id="game-container" class="hidden">
+    <header id="top-bar">
+      <div class="left">
+        <img id="player-avatar" class="avatar" src="" alt="avatar" />
+        <div class="coins" id="coins">🪙 0</div>
+      </div>
+      <div class="right">
+        <button id="btn-store">🛒 Boutique</button>
+        <button id="btn-test">🧪 Test de repaso</button>
+        <button id="btn-reset" class="danger">↺ Reset</button>
+      </div>
+    </header>
+
+    <main>
+      <h1>🎵 Les Sons que je Connais</h1>
+      <div id="progress-wrap">
+        <div id="level-info">Niveau 1 • Exercice 1/5</div>
+        <div class="bar"><span id="progress-bar"></span></div>
+      </div>
+
+      <section id="exercise-area"></section>
+      <button id="next-btn" class="primary hidden">➡️ Suivant</button>
+
+      <div id="coin-animation"></div>
+      <div id="confetti"></div>
+    </main>
+  </div>
+
+  <!-- Boutique / Tienda -->
+  <div id="store-modal" class="modal hidden">
+    <div class="modal-card">
+      <h2>🛒 Boutique d'Avatars</h2>
+      <div id="store-grid" class="store-grid"><!-- desde JS --></div>
+      <button class="secondary" id="close-store">Fermer</button>
+    </div>
+  </div>
+
+  <!-- Modal Test -->
+  <div id="test-modal" class="modal hidden">
+    <div class="modal-card modal-large">
+      <h2>🧪 Test de repaso</h2>
+      <div id="test-area"></div>
+      <div id="tips-area" class="tips hidden"></div>
+      <div class="modal-actions">
+        <button id="start-test" class="primary">Commencer le test</button>
+        <button id="close-test" class="secondary">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
